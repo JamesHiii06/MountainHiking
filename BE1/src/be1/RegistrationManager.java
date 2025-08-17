@@ -12,7 +12,7 @@ import java.util.*;
 public class RegistrationManager {
     private List<Student> students = new ArrayList<>();
 
-    // Add sinh viên mới
+    
     public void newRegistration(Scanner sc) {
         System.out.print("Enter Student ID: ");
         String id = sc.nextLine();
@@ -43,7 +43,7 @@ public class RegistrationManager {
         System.out.println("Registration added successfully!");
     }
 
-    // Cập nhật thông tin sinh viên
+    
     public void updateRegistration(Scanner sc) {
         System.out.print("Enter Student ID to update: ");
         String id = sc.nextLine();
@@ -72,7 +72,7 @@ public class RegistrationManager {
         System.out.println("Registration updated successfully!");
     }
 
-    // Hiển thị danh sách sinh viên
+    
     public void displayRegisteredList() {
         if (students.isEmpty()) {
             System.out.println("No students have registered yet.");
@@ -84,7 +84,7 @@ public class RegistrationManager {
         }
     }
 
-    // Xoá thông tin sinh viên
+    
     public void deleteRegistration(Scanner sc) {
         System.out.print("Enter Student ID to delete: ");
         String id = sc.nextLine();
@@ -97,7 +97,7 @@ public class RegistrationManager {
         System.out.println("The registration has been successfully deleted.");
     }
 
-    // Tìm sinh viên theo tên
+
     public void searchByName(Scanner sc) {
         System.out.print("Enter full or partial name: ");
         String keyword = sc.nextLine().toLowerCase();
@@ -111,7 +111,7 @@ public class RegistrationManager {
         if (!found) System.out.println("No one matches the search criteria!");
     }
     
-    // Tìm theo id
+    
     private Student findById(String id) {
         for (Student s : students) {
             if (s.getStudentId().equals(id)) return s;
@@ -119,7 +119,7 @@ public class RegistrationManager {
         return null;
     }
 
-    // Lọc sinh viên theo campus
+    
     public void filterByCampus(Scanner sc) {
         System.out.print("Enter Campus Code (SE, HE, DE, QE, CE): ");
         String campus = sc.nextLine().toUpperCase();
@@ -133,7 +133,7 @@ public class RegistrationManager {
         if (!found) System.out.println("No students have registered under this campus.");
     }
 
-    // Thống kê 
+ 
     public void registrationStatistics() {
         Map<String, Integer> countMap = new HashMap<>();
         Map<String, Double> feeMap = new HashMap<>();
@@ -154,7 +154,6 @@ public class RegistrationManager {
         }
     }
 
-    // Lưu vào file
     public void saveToFile() {
         try (PrintWriter pw = new PrintWriter(new FileWriter("registrations.txt"))) {
             for (Student s : students) {
